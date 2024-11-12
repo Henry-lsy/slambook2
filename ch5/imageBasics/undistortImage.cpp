@@ -36,7 +36,14 @@ int main(int argc, char **argv) {
       }
     }
   }
-
+  if (image.empty()) {
+      std::cerr << "Error: Could not load the image" << std::endl;
+      return -1;
+  }
+  if (image_undistort.empty()) {
+      std::cerr << "Error: Could not load the undistorted image" << std::endl;
+      return -1;
+  }
   // 画图去畸变后图像
   cv::imshow("distorted", image);
   cv::imshow("undistorted", image_undistort);
